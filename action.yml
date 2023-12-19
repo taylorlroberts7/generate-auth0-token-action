@@ -1,0 +1,45 @@
+name: 'Generate Auth0 Token Action'
+description: 'GitHub action to generate an Auth0 token to be used in a workflow'
+
+# Add your action's branding here. This will appear on the GitHub Marketplace.
+branding:
+  icon: 'heart'
+  color: 'orange'
+
+# Define your inputs here.
+inputs:
+  audience:
+    description: 'Auth0 Audience'
+    required: true
+  client-id:
+    description: 'Auth0 Client ID'
+    required: true
+  client-secret:
+    description: 'Auth0 Client Secret'
+    required: false
+  grant-type:
+    description: 'Auth0 Grant Type'
+    default: 'client-credentials'
+    required: false
+  password:
+    description: 'Auth0 Password'
+    required: false
+  realm:
+    description: 'Auth0 Realm'
+    required: false
+  scope:
+    description: 'Auth0 Scope'
+    required: false
+  username:
+    description: 'Auth0 Username'
+    required: false
+  
+
+# Define your outputs here.
+outputs:
+  token:
+    description: 'Auth0 access token for auth'
+
+runs:
+  using: node20
+  main: dist/index.js

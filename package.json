@@ -1,6 +1,6 @@
 {
   "name": "generate-auth0-token-action",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "GitHub action to generate an Auth0 token to be used in a workflow",
   "repository": "git@github.com:taylorlroberts7/generate-auth0-token-action.git",
   "author": "Taylor Roberts <taylorlroberts7@gmail.com>",

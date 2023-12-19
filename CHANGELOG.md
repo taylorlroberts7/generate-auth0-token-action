@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/taylorlroberts7/generate-auth0-token-action/compare/v1.0.6...v1.0.7) (2023-12-19)
+
+
+### Chores
+
+* clean up ([f48a78d](https://github.com/taylorlroberts7/generate-auth0-token-action/commit/f48a78d5ae08f3a0e742f2c217c22aff6671d0a5))
+
 ## [1.0.6](https://github.com/taylorlroberts7/generate-auth0-token-action/compare/v1.0.5...v1.0.6) (2023-12-19)
 
 

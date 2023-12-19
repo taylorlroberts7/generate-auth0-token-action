@@ -30,6 +30,10 @@ module.exports = {
           },
           {
             release: "patch",
+            type: "chore",
+          },
+          {
+            release: "patch",
             type: "docs",
           },
           {
@@ -83,6 +87,10 @@ module.exports = {
             {
               section: "Documentation",
               type: "docs",
+            },
+            {
+              section: "Chores",
+              type: "chore",
             },
             {
               section: "Styling",

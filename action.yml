@@ -17,6 +17,9 @@ inputs:
   client-secret:
     description: 'Auth0 Client Secret'
     required: false
+  domain:
+    description: 'Auth0 Domain'
+    required: true
   grant-type:
     description: 'Auth0 Grant Type'
     default: 'client-credentials'

@@ -25,6 +25,7 @@ async function getAuthToken() {
   // );
   const audience = core.getInput("audience");
   const clientId = core.getInput("client-id");
+  const domain = core.getInput("domain");
 
   // * Optional inputs
   const clientSecret = core.getInput("client-secret") || undefined;
@@ -34,7 +35,7 @@ async function getAuthToken() {
   const scope = core.getInput("scope") || undefined;
   const username = core.getInput("username") || undefined;
 
-  const url = `https://${process.env.PROD_AUTH0_DOMAIN}/oauth/token`;
+  const url = `https://${domain}/oauth/token`;
   const options = {
     method: "POST",
     headers: { "content-type": "application/x-www-form-urlencoded" },

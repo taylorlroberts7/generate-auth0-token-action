@@ -56,7 +56,7 @@ async function getAuthToken() {
 
   const options = {
     method: "POST",
-    headers: { "content-type": "application/x-www-form-urlencoded" },
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
     // form: {
     //   audience,
     //   client_id: clientId,
@@ -67,7 +67,8 @@ async function getAuthToken() {
     //   scope,
     //   username,
     // },
-    form: formInputs,
+    // form: formInputs,
+    data: new URLSearchParams(formInputs as any),
     // jar: "JAR",
   };
 
@@ -75,6 +76,9 @@ async function getAuthToken() {
   console.log("options -chk", options);
 
   const response = await fetch(url, options);
+  console.log("response -chk", response.headers);
+  console.log("response -chk", response.bodyUsed);
+
   const data: any = await response.json();
 
   console.log("data -chk", data);

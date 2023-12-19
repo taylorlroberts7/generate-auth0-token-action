@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/taylorlroberts7/generate-auth0-token-action/compare/v1.0.3...v1.0.4) (2023-12-19)
+
+
+### Bug Fixes
+
+* remove undefined key values ([c9e3b9a](https://github.com/taylorlroberts7/generate-auth0-token-action/commit/c9e3b9aff6b24ab9fa05c0a531bf6b9e7c54ada9))
+
 ## [1.0.3](https://github.com/taylorlroberts7/generate-auth0-token-action/compare/v1.0.2...v1.0.3) (2023-12-19)
 
 

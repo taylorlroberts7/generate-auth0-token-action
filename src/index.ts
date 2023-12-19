@@ -29,26 +29,45 @@ async function getAuthToken() {
 
   // * Optional inputs
   const clientSecret = core.getInput("client-secret") || undefined;
-  const grantType = core.getInput("grant-type") || "client_credentials";
+  const grantType = core.getInput("grant-type") || undefined;
   const password = core.getInput("password") || undefined;
   const realm = core.getInput("realm") || undefined;
   const scope = core.getInput("scope") || undefined;
   const username = core.getInput("username") || undefined;
 
   const url = `https://${domain}/oauth/token`;
+  const formInputs = {
+    audience,
+    client_id: clientId,
+    client_secret: clientSecret,
+    grant_type: grantType,
+    password,
+    realm,
+    scope,
+    username,
+  };
+
+  let key: keyof typeof formInputs;
+  for (key in formInputs) {
+    if (!formInputs[key]) {
+      delete formInputs[key];
+    }
+  }
+
   const options = {
     method: "POST",
     headers: { "content-type": "application/x-www-form-urlencoded" },
-    form: {
-      audience,
-      client_id: clientId,
-      client_secret: clientSecret,
-      grant_type: grantType,
-      password,
-      realm,
-      scope,
-      username,
-    },
+    // form: {
+    //   audience,
+    //   client_id: clientId,
+    //   client_secret: clientSecret,
+    //   grant_type: grantType,
+    //   password,
+    //   realm,
+    //   scope,
+    //   username,
+    // },
+    form: formInputs,
     // jar: "JAR",
   };
 

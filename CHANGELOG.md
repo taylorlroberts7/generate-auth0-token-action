@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/taylorlroberts7/generate-auth0-token-action/compare/v1.0.5...v1.0.6) (2023-12-19)
+
+
+### Bug Fixes
+
+* use body in request ([ae21a4e](https://github.com/taylorlroberts7/generate-auth0-token-action/commit/ae21a4e5b5528664585eb67715d31020370508ec))
+
 ## [1.0.5](https://github.com/taylorlroberts7/generate-auth0-token-action/compare/v1.0.4...v1.0.5) (2023-12-19)
 
 

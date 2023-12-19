@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/taylorlroberts7/generate-auth0-token-action/compare/v1.0.2...v1.0.3) (2023-12-19)
+
+
+### Bug Fixes
+
+* default grant type ([feac34a](https://github.com/taylorlroberts7/generate-auth0-token-action/commit/feac34a02a70715862260c61d4b2c6c5f0568c65))
+
 ## [1.0.2](https://github.com/taylorlroberts7/generate-auth0-token-action/compare/v1.0.1...v1.0.2) (2023-12-19)
 
 

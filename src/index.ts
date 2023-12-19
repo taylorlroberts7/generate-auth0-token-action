@@ -14,15 +14,6 @@ async function run() {
 run();
 
 async function getAuthToken() {
-  // const request = require("request");
-
-  // const jar = fetch.jar();
-  // jar.setCookie(
-  //   fetch.cookie(
-  //     "did=s%253Av0%253A2536d630-b3a4-11e9-bf1c-0b33eec24f53.OA1zhcaw59Uxk%252FjxyV1r97x8UK9s6%252FHjaHW9%252FIP8T3s"
-  //   ),
-  //   `https://${process.env.PROD_AUTH0_DOMAIN}/oauth/token`
-  // );
   const audience = core.getInput("audience");
   const clientId = core.getInput("client-id");
   const domain = core.getInput("domain");
@@ -36,7 +27,7 @@ async function getAuthToken() {
   const username = core.getInput("username") || undefined;
 
   const url = `https://${domain}/oauth/token`;
-  const formInputs = {
+  const inputs = {
     audience,
     client_id: clientId,
     client_secret: clientSecret,
@@ -47,41 +38,31 @@ async function getAuthToken() {
     username,
   };
 
-  let key: keyof typeof formInputs;
-  for (key in formInputs) {
-    if (!formInputs[key]) {
-      delete formInputs[key];
+  const requestBody: { [x: string]: string } = {};
+
+  let key: keyof typeof inputs;
+  for (key in inputs) {
+    if (!!inputs[key]) {
+      requestBody[key] = inputs[key] as string;
     }
   }
 
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    // form: {
-    //   audience,
-    //   client_id: clientId,
-    //   client_secret: clientSecret,
-    //   grant_type: grantType,
-    //   password,
-    //   realm,
-    //   scope,
-    //   username,
-    // },
-    // form: formInputs,
-    body: new URLSearchParams(formInputs as any),
-    // jar: "JAR",
+    body: new URLSearchParams(requestBody),
   };
 
-  console.log("url -chk", url);
-  console.log("options -chk", options);
+  core.debug(`Request options: JSON.stringify(options)`);
 
   const response = await fetch(url, options);
-  console.log("response -chk", response.headers);
-  console.log("response -chk", response.bodyUsed);
+
+  core.debug(`Response: ${JSON.stringify(response)}`);
 
   const data: any = await response.json();
 
-  console.log("data -chk", data);
+  core.debug(`Response.json: ${JSON.stringify(data)}`);
+
   const accessToken = data.access_token;
 
   if (!accessToken) {
@@ -90,19 +71,4 @@ async function getAuthToken() {
 
   core.setOutput("token", accessToken);
   return accessToken;
-
-  // return new Promise((resolve, reject) => {
-  //   request(options, function (error: Error, response, body) {
-  //     if (error) reject(error);
-  //     const { id_token } = JSON.parse(body);
-  //     core.setOutput("token", id_token);
-  //     return resolve(id_token);
-  //   });
-  //   // request(options, function (error: Error, response, body) {
-  //   //   if (error) reject(error);
-  //   //   const { id_token } = JSON.parse(body);
-  //   //   core.setOutput("token", id_token);
-  //   //   return resolve(id_token);
-  //   // });
-  // });
 }

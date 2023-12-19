@@ -22,7 +22,6 @@ inputs:
     required: true
   grant-type:
     description: 'Auth0 Grant Type'
-    default: 'client_credentials'
     required: false
   password:
     description: 'Auth0 Password'

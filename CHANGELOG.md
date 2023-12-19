@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/taylorlroberts7/generate-auth0-token-action/compare/v1.0.4...v1.0.5) (2023-12-19)
+
+
+### Bug Fixes
+
+* use url search params ([2110ca7](https://github.com/taylorlroberts7/generate-auth0-token-action/commit/2110ca783daa685996a839177d5b9545fa10315e))
+
 ## [1.0.4](https://github.com/taylorlroberts7/generate-auth0-token-action/compare/v1.0.3...v1.0.4) (2023-12-19)
 
 

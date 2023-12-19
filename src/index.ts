@@ -52,11 +52,18 @@ async function getAuthToken() {
     // jar: "JAR",
   };
 
+  console.log("url -chk", url);
+  console.log("options -chk", options);
+
   const response = await fetch(url, options);
   const data: any = await response.json();
 
   console.log("data -chk", data);
   const accessToken = data.access_token;
+
+  if (!accessToken) {
+    core.setFailed("Unable to retrieve access token");
+  }
 
   core.setOutput("token", accessToken);
   return accessToken;

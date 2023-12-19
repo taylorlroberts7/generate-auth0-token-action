@@ -68,7 +68,7 @@ async function getAuthToken() {
     //   username,
     // },
     // form: formInputs,
-    data: new URLSearchParams(formInputs as any),
+    body: new URLSearchParams(formInputs as any),
     // jar: "JAR",
   };
 
